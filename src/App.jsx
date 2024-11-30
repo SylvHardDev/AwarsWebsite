@@ -1,7 +1,9 @@
+import Hero from "./components/Hero"
+
 const App = () => {
   return (
     <main>
-      <h1 className='text-9xl'>Wellcome</h1>
+      <Hero/>
     </main>
   )
 }
