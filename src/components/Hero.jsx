@@ -62,15 +62,15 @@ const Hero = () => {
   useGSAP(() => {
     gsap.set("#video-frame", {
       clipPath: "polygon(14% 0, 72% 0, 88% 90%, 0 95%)",
-      borderRadius: "0% 0% 40% 10%",
+      // borderRadius: "0% 0% 40% 10%",
     })
 
     gsap.from("#video-frame", {
       clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
       borderRadius: "0% 0% 0% 0%",
       ease: "power1.inOut",
-      ScrollTrigger: {
-        trigger: "{video-frame",
+      scrollTrigger: {
+        trigger: "#video-frame",
         start: "center center",
         end: "bottom center",
         scrub: true,
