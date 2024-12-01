@@ -4,6 +4,9 @@ import Button from "./Button"
 import { TiLocationArrow } from "react-icons/ti"
 import { useGSAP } from "@gsap/react"
 import gsap from "gsap"
+import { ScrollTrigger } from "gsap/all"
+
+gsap.registerPlugin(ScrollTrigger)
 
 const Hero = () => {
 
@@ -29,7 +32,7 @@ const Hero = () => {
   }
 
   useEffect(() => {
-    if(loadedVideos === totalVideos - 1) {
+    if (loadedVideos === totalVideos - 1) {
       setLoading(false)
     }
   }, [loadedVideos])
