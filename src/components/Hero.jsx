@@ -1,4 +1,4 @@
-import { useRef } from "react"
+import { useEffect, useRef } from "react"
 import { useState } from "react"
 import Button from "./Button"
 import { TiLocationArrow } from "react-icons/ti"
@@ -9,7 +9,8 @@ const Hero = () => {
 
   const [currentIndex, setCurrentIndex] = useState(1)
   const [hasClicked, setHasClicked] = useState(false)
-  const [isLoading,] = useState(true)
+
+  const [isLoading, setLoading] = useState(true)
   const [loadedVideos, setLoadedVideos] = useState(0)
 
   const totalVideos = 3
@@ -26,6 +27,12 @@ const Hero = () => {
 
     setCurrentIndex(upComingVideoIndex)
   }
+
+  useEffect(() => {
+    if(loadedVideos === totalVideos - 1) {
+      setLoading(false)
+    }
+  }, [loadedVideos])
 
   useGSAP(() => {
     if (hasClicked) {
