@@ -29,7 +29,7 @@ const Hero = () => {
 
   useGSAP(() => {
     if (hasClicked) {
-      gsap.set("#next-video", {visibility: "visible"})
+      gsap.set("#next-video", { visibility: "visible" })
       gsap.to("#next-video", {
         transformOrigin: "center center",
         scale: 1,
@@ -50,7 +50,22 @@ const Hero = () => {
   }, { dependencies: [currentIndex], revertOnUpdate: true })
 
   useGSAP(() => {
-    gsap.set
+    gsap.set("#video-frame", {
+      clipPath: "polygon(14% 0, 72% 0, 88% 90%, 0 95%)",
+      borderRadius: "0% 0% 40% 10%",
+    })
+
+    gsap.from("#video-frame", {
+      clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
+      borderRadius: "0% 0% 0% 0%",
+      ease: "power1.inOut",
+      ScrollTrigger: {
+        trigger: "{video-frame",
+        start: "center center",
+        end: "bottom center",
+        scrub: true,
+      }
+    })
   })
 
   const getVideoSrc = (index) => `videos/hero-${index}.mp4`;
