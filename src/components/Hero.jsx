@@ -1,5 +1,7 @@
 import { useRef } from "react"
 import { useState } from "react"
+import Button from "./Button"
+import { TiLocationArrow } from "react-icons/ti"
 
 const Hero = () => {
 
@@ -73,6 +75,12 @@ const Hero = () => {
             <h1 className="special-font hero-heading text-blue-100">redefi<b>n</b>e</h1>
             <p className="mb-5 max-w-64 font-robert-regular text-blue-100">Enter the metageme layer <br />Unleash the Play Economy</p>
           </div>
+          <Button
+            id="watch-trailer"
+            title="Watch Trailer"
+            leftIcon={<TiLocationArrow />}
+            containerClass="!bg-yellow-300 flex-center gap-1"
+          />
         </div>
       </div>
     </div>
