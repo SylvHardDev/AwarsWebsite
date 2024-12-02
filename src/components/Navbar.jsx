@@ -15,15 +15,15 @@ const Navbar = () => {
   const toggleAudioIndicator = () => {
     setAudioPlaying((prev) => !prev)
     setIsIndicatorActive((prev) => !prev)
-
-    useEffect(() => {
-      if (isAudioPlaying) {
-        audioElementRef.current.play()
-      } else {
-        audioElementRef.current.pause()
-      }
-    }, [])
   }
+
+  useEffect(() => {
+    if (isAudioPlaying) {
+      audioElementRef.current.play()
+    } else {
+      audioElementRef.current.pause()
+    }
+  }, [isAudioPlaying])
 
   return (
     <div ref={navContainerRef} className='fixed inset-x-0 top-4 z-50 h-16 border-none transition-all duration-700 sm:inset-x-6'>
@@ -55,7 +55,7 @@ const Navbar = () => {
 
             <button className="ml-10 flex items-center space-x-0.5" onClick={toggleAudioIndicator}>
               <audio ref={audioElementRef} className='hidden' src="/audio/loop.mp3" loop />
-              {[1, 2, 3].map((bar) => (
+              {[1, 2, 3, 4].map((bar) => (
                 <div key={bar} className={`indicator-line ${isIndicatorActive ? 'active' : ''}`} style={{ animationDelay: `${bar * 0.1}s` }} />
               ))}
             </button>
