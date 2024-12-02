@@ -4,6 +4,8 @@ import { TiLocationArrow } from 'react-icons/ti';
 
 const Navbar = () => {
 
+  const navItems = ["Nexus", "Vault", "Prologue", "About", "Contact"];
+
   const navContainerRef = useRef(null);
 
   return (
@@ -13,7 +15,7 @@ const Navbar = () => {
           <div className="flex items-center gap-7">
             <img src="/img/logo.png" alt="logo" className="w-10" />
 
-            
+
             <Button
               id="product-button"
               title="Products"
@@ -22,6 +24,20 @@ const Navbar = () => {
             />
           </div>
 
+          <div className='flex h-full items-center'>
+            <div className='hidden md:block'>
+              {
+                navItems.map((item) => (
+                  <a key={item} href={`#${item.toLocaleLowerCase()}`} className='nav-hover-btn'>
+                    {item}
+                  </a>
+                ))
+              }
+            </div>
+
+
+            <button className="ml-10 flex items-center space-x-0.5"></button>
+          </div>
         </nav>
       </header>
 
