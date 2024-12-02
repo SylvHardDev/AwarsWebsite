@@ -8,11 +8,11 @@ gsap.registerPlugin(ScrollTrigger);
 
 const About = () => {
 
-  useGSAP(()=> {
+  useGSAP(() => {
     const clipAnimation = gsap.timeline({
       scrollTrigger: {
         trigger: "#clip",
-        start:"center center",
+        start: "center center",
         end: "+=800 center",
         scrub: 0.5,
         pin: true,
@@ -33,8 +33,11 @@ const About = () => {
         <h2 className="font-general text-sm uppercase md:text-[10px]">
           Welcome to Zentry
         </h2>
-        <AnimatedTitle/>
-        
+        <AnimatedTitle
+          title="Disc<b>o</b>ver the world's <br /> largest shared <b>a</b>dventure"
+          containerClass="mt-5 !text-black text-center"
+        />
+
         <div className="about-subtext">
           <p>
             The game of Games begins-your life, now an epic MMORPG
